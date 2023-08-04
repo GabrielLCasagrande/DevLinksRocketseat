@@ -14,7 +14,6 @@
   --switch-bg-url: url(Assets/moon-stars.svg);
 }
 
-
 .light {
   --text-color: black;
   --bg-url: url(./Assets/bg-mobile-light.jpg);
@@ -23,7 +22,6 @@
   --surface-color-hover: rgba(0, 0, 0, 0.2);
   --highlight-color: rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(/Assets/sun.svg);
-
 }
 
 body {
@@ -44,7 +42,8 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   margin: 56px auto 0px;
   padding: 0 24px;
 }
@@ -174,8 +173,6 @@ footer {
 
 /* Os pseudosseletores são uma forma de selecionar elementos HTML com base em seu estado ou posição em relação a outros elementos. */
 
-
-
 /* Git e Github
 
 Inicia o git (repositório) no seu projeto
@@ -189,4 +186,4 @@ git commit -m
 
 envia alterações para o repositório remoto
 git push
-
+*/
