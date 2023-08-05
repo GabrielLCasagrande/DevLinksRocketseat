@@ -25,14 +25,7 @@
 }
 
 body {
-  /*
-  background-image: url(./Assets/bg-mobile.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
 
-  Usando todos os atralhos juntos
-  */
   background: var(--bg-url) no-repeat top center/cover;
   /*height: 100vh; */
 }
@@ -42,6 +35,7 @@ body * {
   color: var(--text-color);
 }
 
+/* container */
 #container {
   width: 100%;
   max-width: 588px;
@@ -49,14 +43,12 @@ body * {
   padding: 0 24px;
 }
 
-/* como a imagem está dentro do "pai" profile, logo não conseguimos alinhar ela usando apenas margin, devemos usar "display block" "display inline" */
-
+/* perfil */
 #profile {
   text-align: center;
   padding: 24px;
 }
 
-/* perfil */
 #profile img {
   width: 112px;
   margin: auto;
@@ -71,9 +63,9 @@ body * {
 
 /* switch*/
 #switch {
-  position: relative; /*fazendo com que o botão fique dentro da caixa do switch e n fora dela*/
-  width: 64px; /* deixar na mesma largura que o track */
-  margin: 4px auto; /* alinha os elementos no centro da tela */
+  position: relative; 
+  width: 64px; 
+  margin: 4px auto; 
 }
 
 #switch button {
@@ -82,21 +74,24 @@ body * {
   background: white var(--switch-bg-url) no-repeat center;
   border: 0;
   border-radius: 50%;
-
-  position: absolute; /* faz uma sobreposição de camadas */
-  z-index: 1; /* como se fosse o primeiro andar, para sobrepor o botão por cima da barrinha */
+  position: absolute; 
+  z-index: 1; 
   left: 0;
-  top: 50%; /* coloca todo o elemento 50% do topo */
-  transform: translateY(-50%); /* coloca o elemento 50% para fora da caixa */
+  top: 50%; 
+  transform: translateY(-50%); 
+  animation: slide-back 0.4s; 
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
-  display: block; /* display block deixa um abaixo do outro, display inline, um ao lado do outro */
+  display: block; 
   border-radius: 9999px;
   width: 64px;
   height: 24px;
@@ -107,36 +102,30 @@ body * {
 }
 
 /* links */
-
 ul {
   list-style: none;
-
   display: flex;
   flex-direction: column;
-  gap: 16px; /* distância entre os botões */
+  gap: 16px; 
   padding: 24px 0;
 }
 
 ul li a {
   display: flex;
-  align-items: center; /* alinhar itens no centro */
-  justify-content: center; /* alinhar conteúdo no centro */
-
+  align-items: center; 
+  justify-content: center; 
   padding: 16px 24px;
-
   background: var(--surface-color);
   border: 1px solid var(--stroke-color);
-  border-radius: 8px; /* curvatura da borda */
+  border-radius: 8px; 
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-
-  text-decoration: none; /* remove linha do texto */
+  text-decoration: none; 
   font-weight: 500;
-
-  transition: background 0.2s; /* funciona como a transição de um vídeo, porém quando passamos o mouse em cima do elemente */
+  transition: background 0.2s; 
 }
 
-/* pseudo-selector : muda as coisas quando passa o mouse em cima */
+/* pseudo-selector */
 ul li a:hover {
   background: var(--surface-color-hover);
   border: 1.5px solid var(--text-color);
@@ -146,9 +135,7 @@ ul li a:hover {
 #social-links {
   display: flex;
   justify-content: center;
-
   padding: 24px 0;
-
   font-size: 24px;
 }
 
@@ -165,10 +152,10 @@ ul li a:hover {
   background: var(--highlight-color);
 }
 
-/* footer é o rodapé da página */
+/* footer */
 footer {
   padding: 24px 0;
-  text-align: center; /* alinha textos ao centro */
+  text-align: center;
   font-size: 14px;
 }
 
@@ -183,19 +170,22 @@ footer {
   }
 }
 
-/* Os pseudosseletores são uma forma de selecionar elementos HTML com base em seu estado ou posição em relação a outros elementos. */
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
 
-/* Git e Github
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
 
-Inicia o git (repositório) no seu projeto
-git init
-
-adiciona todos os arquivos modificados ao stage
-git add .
-
-cria e descreve um ponto na história
-git commit -m
-
-envia alterações para o repositório remoto
-git push
-*/
